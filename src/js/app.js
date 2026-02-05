@@ -63,7 +63,7 @@ class TrelloBoard {
 
       cards.forEach((card) => {
         const cardEl = this.createCardElement(card, columnId)
-        cardsContainer.appendChild(cardEl)
+        cardsContainer.append(cardEl)
       })
 
       const addBlock = document.createElement('div')
@@ -73,13 +73,13 @@ class TrelloBoard {
       addBtn.type = 'button'
       addBtn.textContent = '+ Add another card'
       addBtn.dataset.columnId = columnId
-      addBlock.appendChild(addBtn)
+      addBlock.append(addBtn)
 
       columnEl.append(titleEl, cardsContainer, addBlock)
-      board.appendChild(columnEl)
+      board.append(columnEl)
     })
 
-    root.appendChild(board)
+    root.append(board)
     this.bindEvents()
   }
 
@@ -151,7 +151,7 @@ class TrelloBoard {
     textarea.value = originalText
     textarea.rows = 3
 
-    cardEl.appendChild(textarea)
+    cardEl.append(textarea)
     textarea.focus()
     textarea.setSelectionRange(textarea.value.length, textarea.value.length)
 
@@ -275,7 +275,7 @@ class TrelloBoard {
     ghost.style.height = `${rect.height}px`
     ghost.style.left = `${clientX - offsetX}px`
     ghost.style.top = `${clientY - offsetY}px`
-    document.body.appendChild(ghost)
+    document.body.append(ghost)
 
     wrap.classList.add('card-dragging')
 
@@ -375,7 +375,7 @@ class TrelloBoard {
     if (ref) {
       col.insertBefore(this.placeholderEl, ref)
     } else {
-      col.appendChild(this.placeholderEl)
+      col.append(this.placeholderEl)
     }
   }
 
